@@ -48,6 +48,41 @@ def run_dakota(dakota_conf_path: Path, batch_mode: bool = True):
     study.execute()
     ## TODO access documentation of dakenv.study -- cannot, also cannot find in https://github.com/snl-dakota/dakota/tree/devel/packages
     # would need to ask Werner
+    """
+    Help on class study in module dakota.environment.environment:
+
+class study(pybind11_builtins.pybind11_object)
+ |  Method resolution order:
+ |      study
+ |      pybind11_builtins.pybind11_object
+ |      builtins.object
+ |  
+ |  Methods defined here:
+ |  
+ |  __init__(...)
+ |      __init__(*args, **kwargs)
+ |      Overloaded function.
+ |      
+ |      1. __init__(self: dakota.environment.environment.study, callback: object, input_string: str, read_restart: str = '') -> None
+ |      
+ |      2. __init__(self: dakota.environment.environment.study, callbacks: dict, input_string: str, read_restart: str = '') -> None
+ |  
+ |  execute(...)
+ |      execute(self: dakota.environment.environment.study) -> None
+ |  
+ |  response_results(...)
+ |      response_results(self: dakota.environment.environment.study) -> dakota.environment.environment.Response
+ |  
+ |  variables_results(...)
+ |      variables_results(self: dakota.environment.environment.study) -> dakota.environment.environment.Variables
+ |  
+ |  ----------------------------------------------------------------------
+ |  Static methods inherited from pybind11_builtins.pybind11_object:
+ |  
+ |  __new__(*args, **kwargs) from pybind11_builtins.pybind11_type
+ |      Create and return a new object.  See help(type) for accurate signature.
+    
+    """
 
 
 if __name__ == "__main__":
