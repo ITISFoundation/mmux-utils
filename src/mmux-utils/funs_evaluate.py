@@ -3,6 +3,8 @@
 from typing import Callable, List
 from pathlib import Path
 import dakota.environment as dakenv
+import datetime
+import os
 
 
 ### Otherwise could create a class that I can instantiate and give a "model" at initialization time,
@@ -11,8 +13,24 @@ def batch_evaluator(model: Callable, batch_input: List[dict]):
     return map(model, batch_input)  # FIXME not sure this will work
 
 
+def batch_evaluator_local(model: Callable, batch_input: List[dict]):
+    return [
+        {"fns": [v for v in response.values()]} for response in map(model, batch_input)
+    ]
+
+
 def single_evaluator(model: Callable, input: dict):
     return model(input)
+
+
+def create_run_dir(script_dir: Path, dir_name: str = "sampling"):
+    ## part 1 - setup
+    main_runs_dir = script_dir / "runs"
+    current_time = datetime.datetime.now().strftime("%Y%m%d.%H%M%S%d")
+    temp_dir = main_runs_dir / "_".join(["dakota", current_time, dir_name])
+    os.makedirs(temp_dir)
+    print("temp_dir: ", temp_dir)
+    return temp_dir
 
 
 def run_dakota(dakota_conf_path: Path, batch_mode: bool = True):
