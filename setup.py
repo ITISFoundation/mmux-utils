@@ -24,5 +24,6 @@ setup(
         "seaborn",
         "scipy",
         "statsmodels",
+        "itis-dakota",
     ],
 )
