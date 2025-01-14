@@ -16,7 +16,7 @@ setup(
     author="Javier Garcia Ordonez",
     author_email="ordonez@itis.swiss",
     packages=find_packages(),
-    python_requires="==3.10",
+    python_requires="==3.10.12",
     install_requires=[
         "numpy",
         "pandas",
