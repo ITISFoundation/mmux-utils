@@ -19,6 +19,7 @@ setup(
     package_dir={"": "src"},
     python_requires="==3.10.12",
     install_requires=[
+        "gitpython",
         "numpy",
         "pandas",
         "matplotlib",
