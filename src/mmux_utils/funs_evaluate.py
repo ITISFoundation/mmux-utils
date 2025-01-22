@@ -5,8 +5,9 @@ from pathlib import Path
 import dakota.environment as dakenv
 import datetime
 import os
-import git
-import sys
+
+
+## TODO switch to test-based development!!
 
 
 ### Otherwise could create a class that I can instantiate and give a "model" at initialization time,
@@ -33,16 +34,6 @@ def create_run_dir(script_dir: Path, dir_name: str = "sampling"):
     os.makedirs(temp_dir)
     print("temp_dir: ", temp_dir)
     return temp_dir
-
-
-def clone_repo(repo_url, commit_hash, run_dir):
-    repo_path = run_dir / repo_url.split("/")[-1]
-    git.Repo.clone_from(repo_url, repo_path)
-    repo = git.Repo(repo_path)
-    repo.git.checkout(commit_hash)
-    # Add the cloned repo to the system path
-    sys.path.append(str(repo_path))
-    ## now the desired functions should be available
 
 
 def run_dakota(dakota_conf_path: Path, batch_mode: bool = True):
