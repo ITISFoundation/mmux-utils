@@ -15,14 +15,17 @@ setup(
     long_description=long_description,
     author="Javier Garcia Ordonez",
     author_email="ordonez@itis.swiss",
-    packages=find_packages(),
+    packages=find_packages(where="src"),
+    package_dir={"": "src"},
     python_requires="==3.10.12",
     install_requires=[
+        "gitpython",
         "numpy",
         "pandas",
         "matplotlib",
         "seaborn",
         "scipy",
         "statsmodels",
+        "itis-dakota",
     ],
 )
